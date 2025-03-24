@@ -224,7 +224,9 @@
   ```
 
 📸 **Output**:  
-<img src="screenshots/about2.png" width="520" style="text-align:center" />
+<p align="center">
+<img src="screenshots/about2.png" width="520" />
+</p>
 ---
 
 ### 1.11 ✅ **Menyelesaikan Tugas**
