@@ -1,4 +1,4 @@
-# 📄 **Laporan Praktikum Pemrograman Web 2 - Lab 7 Web**  
+# 📄 **Laporan Praktikum 1 - Pemrograman Web 2**  
 ### **Framework CodeIgniter 4** 🔥
 
 ---
@@ -272,3 +272,5 @@
 4. [XAMPP for Windows](https://www.apachefriends.org/index.html)
 
 ---
+
+# 📄 **Laporan Praktikum 2 - Pemrograman Web 2**  
