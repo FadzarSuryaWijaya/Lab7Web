@@ -237,15 +237,14 @@
 ![alt](screenshots/pageupdate.png)
 
 - Buat file:
-  - `artikel.php`
+  - `about.php`
   - `kontak.php`
 
 - Update navigasi `header.php`
 
 📸 **Output**:  
-![alt](screenshots/about2.png)
-![alt](screenshots/kontak.png)
-
+<img src="screenshots/about2.png" height="210" align= "center" />
+<img src="screenshots/kontak.png" height="210" align="center" />
 ---
 
 ## 📚 **Kesimpulan**
