@@ -29,103 +29,90 @@
 ## 📝 **Instruksi Praktikum**
 1. 🚀 Pastikan **XAMPP** telah terinstal dan **Apache** berjalan.
 2. ✍️ Persiapkan text editor seperti **VSCode**.
-3. 🗂️ Buat folder baru di direktori `htdocs` dengan nama `lab11_php_ci`.
-4. 📖 Ikuti langkah-langkah praktikum berikut.
+3. 📖 Ikuti langkah-langkah praktikum berikut.
 
 ---
 
 ## 🔧 **Langkah-Langkah Praktikum**
 
-### 4.1 ⚙️ **Persiapan Lingkungan**
+### 1.1 ⚙️ **Persiapan Lingkungan**
 - **Aktifkan ekstensi PHP yang dibutuhkan**:
   - ✅ `php-json`
   - ✅ `php-mysqlnd`
   - ✅ `php-xml`
   - ✅ `php-intl`
+  - ✅ `extension=zip` (optional untuk php versi 8++)
   - ✅ `libcurl` (optional)
 
 📝 **Langkah:**
 1. Buka **XAMPP Control Panel** → `Config` → `PHP (php.ini)`.
 2. Cari ekstensi yang dibutuhkan, hilangkan `;` di depannya.
-3. Save dan **restart Apache**.
+3. Save dan **restart Apache**.![alt text](screenshots/xampp.png)
 
 ⚠️ **Catatan Penting**:
 - Pastikan **tidak ada error** saat Apache di-restart.
 - PHP minimal versi **7.4**.
 
-📸 **Screenshot**:
-- ✅ Tampilan **XAMPP Control Panel**
-- ✅ File `php.ini` setelah aktivasi ekstensi
-- ✅ Apache berjalan sukses ✔️
-
 ---
 
-### 4.2 📥 **Instalasi CodeIgniter 4**
+### 1.2 📥 **Instalasi CodeIgniter 4**
 1. Download dari [👉 CodeIgniter Download](https://codeigniter.com/download)
-2. Ekstrak ke `htdocs/lab11_php_ci`
-3. Rename folder jadi `ci4`
+2. Ekstrak ke `htdocs`
+3. Rename folder jadi `lab11_php_ci`
 
 🌐 **Akses awal**:  
-`http://localhost/lab11_php_ci/ci4/public`  
+`http://localhost/lab11_php_ci/public`  
 ➡️ Pastikan muncul halaman **"Welcome to CodeIgniter 4!"**
 
-📸 **Screenshot**:
-- ✅ Halaman download CodeIgniter  
-- ✅ Struktur folder `ci4` di `htdocs`  
-- ✅ Tampilan awal CI4 di browser  
+![alt text](screenshots/welcome.png)
 
 ---
 
-### 4.3 💻 **Menjalankan CLI CodeIgniter 4**
+### 1.3 💻 **Menjalankan CLI CodeIgniter 4**
 - Buka **Command Prompt/Terminal**  
-- Masuk ke direktori `ci4`  
+- Masuk ke direktori `htdocs`  
   ```bash
-  cd xampp/htdocs/lab11_php_ci/ci4
+  cd xampp/htdocs/lab11_php_ci
   ```  
 - Jalankan command:  
   ```bash
   php spark
   ```  
 ➡️ Tampil daftar command CLI CI4
+![alt](screenshots/spark.png)
 
-📸 **Screenshot**:  
-- ✅ Terminal di direktori project  
-- ✅ Output `php spark` CLI  
 
 ---
 
-### 4.4 🐞 **Mengaktifkan Mode Debugging**
+### 1.4 🐞 **Mengaktifkan Mode Debugging**
 - Rename `env` → `.env`  
+![alt](screenshots/env2)
+
 - Edit `.env`:
   ```ini
   CI_ENVIRONMENT = development
   ```
+  ![alt](screenshots/env)
+
 - Simulasi error: hapus titik koma di `Home.php`
 
 ⚠️ **Tujuan**: Debugging akan menampilkan **error details** di browser.
 
-📸 **Screenshot**:  
-- ✅ File `.env` di root  
-- ✅ Konfigurasi `CI_ENVIRONMENT`  
-- ✅ Error tampilan browser dengan mode debug aktif  
-
 ---
 
-### 4.5 📂 **Struktur Direktori CodeIgniter 4**
+### 1.5 📂 **Struktur Direktori CodeIgniter 4**
 📁 Struktur folder utama:
+![alt text](screenshots/folder.png)
 - `app/` → Folder aplikasi MVC  
 - `public/` → Root akses browser  
 - `writable/` → Cache, log, upload  
 - `vendor/` → Composer dependencies  
 - `tests/` → Unit testing  
 - `.env`, `spark` → Env & CLI
+ 
 
-📸 **Screenshot**:
-- ✅ Struktur direktori dari VSCode/File Explorer  
 
----
-
-### 4.6 🏗️ **Memahami Konsep MVC**
+### 1.6 🏗️ **Memahami Konsep MVC**
 🎨 **Model-View-Controller**:
 - **Model** → Data & logic bisnis  
 - **View** → Tampilan ke user  
@@ -137,7 +124,7 @@
 
 ---
 
-### 4.7 🗺️ **Routing dan Controller**
+### 1.7 🗺️ **Routing dan Controller**
 - Edit `app/Config/Routes.php`:  
   ```php
   $routes->get('/about', 'Page::about');
@@ -150,7 +137,7 @@
   php spark routes
   ```
 
-- Buat controller `Page.php`:
+- Buat controller di `Controllers/Page.php`:
   ```php
   <?php
   namespace App\Controllers;
@@ -163,20 +150,13 @@
   }
   ```
 
-🌐 Akses di browser:  
-- `/about`  
-- `/contact`  
+🌐 Akses output di browser:  
 - `/faqs`
-
-📸 **Screenshot**:  
-- ✅ Routes.php  
-- ✅ CLI routes  
-- ✅ Controller `Page.php`  
-- ✅ Browser output  
+![alt](screenshots/faqs.png)
 
 ---
 
-### 4.8 ⚡ **Auto Routing**
+### 1.8 ⚡ **Auto Routing**
 - Tambahkan method `tos()` di `Page.php`:
   ```php
   public function tos() { echo "Ini halaman Terms of Service"; }
@@ -184,14 +164,11 @@
 
 - Akses:  
   - `http://localhost:8080/page/tos`
-
-📸 **Screenshot**:  
-- ✅ Kode `tos()`  
-- ✅ Browser output halaman Terms of Service  
+![alt](screenshots/tos.png)
 
 ---
 
-### 4.9 🖼️ **Membuat View**
+### 1.9 🖼️ **Membuat View**
 - Buat `about.php` di `Views`:
   ```html
   <h1>Tentang Kami</h1>
@@ -203,14 +180,12 @@
   public function about() { return view('about'); }
   ```
 
-📸 **Screenshot**:  
-- ✅ File `about.php`  
-- ✅ Controller dipanggil view  
-- ✅ Browser output halaman about  
+📸 **Output**:  
+![alt](screenshots/about.png)
 
 ---
 
-### 4.10 🎨 **Membuat Layout Template + CSS**
+### 1.10 🎨 **Membuat Layout Template + CSS**
 - Buat `public/style.css`  
 - Buat `Views/template/header.php`:
   ```php
@@ -222,9 +197,11 @@
   <body>
       <header><h1>My Web</h1></header>
       <nav>
-          <a href="/about">About</a> |
-          <a href="/contact">Contact</a> |
-          <a href="/faqs">FAQs</a>
+          <a href="/Home">FAQs</a>
+          <a href="/Artikel">FAQs</a>
+          <a href="/About">FAQs</a>
+          <a href="/Kontak">About</a> |
+          <a href="/Dashboard">Contact</a> |
       </nav>
   ```
 
@@ -238,24 +215,25 @@
 - Gunakan di `about.php`:
   ```php
   <?= view('template/header'); ?>
-  <h2>About Us</h2>
-  <p>This is the about page.</p>
+  <?= view('template/hero'); ?>
+  <h1><?= $title; ?></h1>  <!-- dari controller page.php -->
+  <hr>
+  <p><?= $content; ?></p>
   <?= view('template/footer'); ?>
   ```
 
-📸 **Screenshot**:  
-- ✅ Header & Footer  
-- ✅ Halaman about terintegrasi  
-- ✅ Browser output  
+📸 **Output**:  
+![alt](screenshots/about2.png)
 
 ---
 
-### 4.11 ✅ **Menyelesaikan Tugas**
+### 1.11 ✅ **Menyelesaikan Tugas**
 - Tambahkan method di `Page.php`:
   ```php
-  public function artikel() { return view('artikel'); }
+  public function about() { return view('about'); }
   public function kontak() { return view('kontak'); }
   ```
+![alt](screenshots/pageupdate.png)
 
 - Buat file:
   - `artikel.php`
@@ -263,10 +241,9 @@
 
 - Update navigasi `header.php`
 
-📸 **Screenshot**:  
-- ✅ Controller `artikel()` & `kontak()`  
-- ✅ Views artikel & kontak  
-- ✅ Browser menu navigasi lengkap  
+📸 **Output**:  
+![alt](screenshots/about2.png)
+![alt](screenshots/kontak.png)
 
 ---
 
@@ -292,19 +269,5 @@
 2. 📒 Modul Praktikum Pemrograman Web 2  
 3. [PHP Manual](https://www.php.net/manual/en/)  
 4. [XAMPP for Windows](https://www.apachefriends.org/index.html)
-
----
-
-## 📂 **Catatan Tambahan**
-- Simpan dokumentasi sebagai `README.md` di project root `Lab7Web`.
-- Gunakan Git untuk version control:
-  ```bash
-  git init
-  git add .
-  git commit -m "Lab 7 CodeIgniter 4 selesai 🚀"
-  git remote add origin https://github.com/username/Lab7Web.git
-  git push -u origin main
-  ```
-- Submit link repository ke **eCampus** ✅
 
 ---
