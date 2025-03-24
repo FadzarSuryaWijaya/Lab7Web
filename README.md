@@ -243,8 +243,8 @@
 - Update navigasi `header.php`
 
 📸 **Output**:  
-<img src="screenshots/about2.png" height="400" align="center" />
-<img src="screenshots/kontak.png" height="400" align="center" />
+<img src="screenshots/about2.png" height="400" />
+<img src="screenshots/kontak.png" height="400" />
 ---
 
 ## 📚 **Kesimpulan**
