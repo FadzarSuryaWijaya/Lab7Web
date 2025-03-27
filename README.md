@@ -87,13 +87,13 @@
 
 ### 1.4 🐞 **Mengaktifkan Mode Debugging**
 - Rename `env` → `.env`  
-![alt](screenshots/env2)
+![alt](screenshots/env2.png)
 
 - Edit `.env`:
   ```ini
   CI_ENVIRONMENT = development
   ```
-  ![alt](screenshots/env)
+  ![alt](screenshots/env.png)
 
 - Simulasi error: hapus titik koma di `Home.php`
 
@@ -274,3 +274,291 @@
 ---
 
 # 📄 **Laporan Praktikum 2 - Pemrograman Web 2**  
+
+---
+
+## 🎯 **Tujuan Praktikum**
+1. ✅ Memahami konsep dasar **Model** pada CodeIgniter 4.
+2. ✅ Memahami konsep dasar **CRUD (Create, Read, Update, Delete)**.
+3. ✅ Mampu membuat **aplikasi sederhana** menggunakan CRUD di **CodeIgniter 4**.
+4. ✅ Menghubungkan aplikasi dengan **database MySQL**.
+5. ✅ Menerapkan **best practice coding** untuk CRUD.
+
+---
+
+## 🛠️ **Alat dan Bahan**
+### Software 💻
+- 🔹 **XAMPP** (PHP >= 7.4)
+- 🔹 **Visual Studio Code** (VSCode)
+- 🔹 **MySQL Database** (dari XAMPP)
+- 🔹 **Git** (optional untuk version control)
+- 🔹 **Browser** (Chrome/Firefox/Edge)
+
+### Bahan 📚
+- 📂 **Framework CodeIgniter 4**
+- 📑 **Modul Praktikum 2**
+- 🌐 **Koneksi internet** (untuk download & referensi)
+
+---
+
+## 📝 **Instruksi Praktikum**
+1. 🚀 Pastikan **XAMPP** telah terinstal dan **Apache + MySQL** berjalan.
+2. ✍️ Pastikan **CodeIgniter 4** telah diinstal di `htdocs/lab11_php_ci`.
+3. 📖 Ikuti langkah-langkah praktikum berikut.
+
+---
+
+## 🔧 **Langkah-Langkah Praktikum**
+
+### 2.1 📂 **Persiapan Database MySQL**
+- **Jalankan MySQL di XAMPP**.
+- **Buat database baru** dengan nama `lab_ci4`:
+  ```sql
+  CREATE DATABASE lab_ci4;
+  ```
+- **Buat tabel artikel** dengan struktur berikut:
+  ```sql
+  CREATE TABLE artikel (
+      id INT(11) AUTO_INCREMENT,
+      judul VARCHAR(200) NOT NULL,
+      isi TEXT NULL,
+      gambar VARCHAR(200) NULL,
+      status TINYINT(1) NOT NULL DEFAULT 0,
+      slug VARCHAR(200) NULL,
+      PRIMARY KEY(id)
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  );
+  ```
+- **Cek database** di phpMyAdmin.
+  ![alt](screenshots/database_artikel.png)
+
+---
+
+### 2.2 🔗 **Konfigurasi Koneksi Database**
+- **Buka file `.env` di CodeIgniter 4**.
+- **Edit bagian database**:
+  ```ini
+  database.default.hostname = localhost
+  database.default.database = lab_ci4
+  database.default.username = root
+  database.default.password =
+  database.default.DBDriver = MySQLi
+  ```
+- **Simpan perubahan** dan restart server.
+
+---
+
+### 2.3 🏗️ **Membuat Model**
+- **Buat file baru `ArtikelModel.php` di `app/Models/`**:
+  ```php
+  <?php
+  namespace App\Models;
+  use CodeIgniter\Model;
+  
+  class ArtikelModel extends Model
+  {
+      protected $table = 'artikel';
+      protected $primaryKey = 'id';
+      protected $useAutoIncrement = true;
+      protected $allowedFields = [
+        'judul',
+        'isi',
+        'status',
+        'slug',
+        'gambar',
+        'created_at',
+        'updated_at',
+    ];
+  }
+  ```
+
+---
+
+### 2.4 🎯 **Membuat Controller CRUD**
+- **Buat file `Artikel.php` di `app/Controllers/`**:
+  ```php
+  <?php
+  namespace App\Controllers;
+  use App\Models\ArtikelModel;
+  
+  class Artikel extends BaseController
+  {
+      public function index()
+      {
+          $model = new ArtikelModel();
+          $artikel = $model->findAll();
+          return view('artikel/index', compact('artikel'));
+      }
+  }
+  ```
+  
+---
+
+### 2.5 🖼️ **Membuat View Index**
+- **Buat folder `artikel/` di `app/Views/`**.
+- **Buat file `index.php`**:
+  ```php
+    <?= $this->include('template/header'); ?>
+    <section id="content">
+  ```
+  * Fungsi: Memasukkan file header.php yang biasanya berisi metadata, stylesheet, dan navigasi.
+  * `<section id="content">`: Menjadi wadah utama untuk menampilkan daftar artikel.
+
+  ```php
+        <?php if ($artikel): ?>
+            <?php foreach ($artikel as $row): ?>
+                <article class="entry">
+                    <!-- Judul dengan link -->
+                    <h2>
+                        <a href="<?= base_url('/artikel/' . $row['slug']); ?>">
+                            <?= esc($row['judul']); ?>
+                        </a>
+                    </h2>
+                    <!-- Cek gambar -->
+                    <?php if (!empty($row['gambar'])): ?>
+                        <img src="<?= base_url('/gambar/' . $row['gambar']); ?>" alt="<?= esc($row['judul']); ?>" style="max-width: 100%; height: auto;">
+                    <?php endif; ?>
+                    <!-- Cuplikan isi -->
+                    <p>
+                        <?= esc(substr(strip_tags($row['isi']), 0, 200)); ?>...
+                    </p>
+                    <!-- Tombol Baca Selengkapnya -->
+                    <a href="<?= base_url('/artikel/' . $row['slug']); ?>" class="read-more">Baca Selengkapnya</a>
+                </article>
+                <!-- <hr class="divider" /> -->
+            <?php endforeach; ?>
+        <?php else: ?>
+            <article class="entry">
+                <h2>Tidak ada artikel yang tersedia.</h2>
+            </article>
+            <?php endif; ?>
+    </section>
+  ```
+  * Cek apakah `$artikel` memiliki data, jika ada maka dilakukan looping.
+  * Menampilkan judul artikel dalam tag `<h2>` dengan link ke halaman detail.
+  * Cek apakah ada gambar, jika ada maka ditampilkan.
+  * Menampilkan cuplikan isi artikel (200 karakter pertama).
+  * Tombol "Baca Selengkapnya" untuk membuka artikel secara penuh.
+  * Jika `$artikel` kosong, tampilkan pesan "Tidak ada artikel yang tersedia."
+
+  ```php  
+    <?= $this->include('template/footer'); ?>
+  ```
+  * Memasukkan file footer.php yang biasanya berisi informasi tambahan, hak cipta, dan script JavaScript.
+
+
+---
+
+### 2.6 📥 **Insert Data Artikel ke Database**
+- **Jalankan query berikut di phpMyAdmin:**
+  ```sql
+  INSERT INTO artikel (judul, isi, slug) VALUES
+  ('Artikel Pertama', 'Isi artikel pertama...', 'artikel-pertama'),
+  ('Artikel Kedua', 'Isi artikel kedua...', 'artikel-kedua');
+  ```
+- **Akses URL:** `http://localhost:8080/artikel`
+- **Pastikan data tampil di halaman.**
+![alt](screenshots/artikel_filled.png)
+
+---
+
+### 2.7 📝 **Membuat Halaman Detail Artikel**
+- **Tambahkan method `view()` di Controller `Artikel.php`**:
+  ```php
+    public function view($slug)
+    {
+        $model = new ArtikelModel();
+        $artikel = $model->where([
+            'slug' => $slug
+        ])->first();
+        // Menampilkan error apabila data tidak ada.
+        if (!$artikel) {
+            throw PageNotFoundException::forPageNotFound();
+        }
+        $title = $artikel['judul'];
+        return view('artikel/detail', compact('artikel', 'title'));
+    }
+  ```
+    1. **Membuat instance model**  
+      - Fungsi membuat objek dari `ArtikelModel` untuk mengakses data artikel dalam database.  
+
+    2. **Mencari artikel berdasarkan slug**  
+      - Menggunakan metode `where(['slug' => $slug])->first()` untuk mengambil satu artikel yang sesuai dengan slug yang diberikan.  
+
+    3. **Mengecek apakah artikel ditemukan**  
+      - Jika artikel tidak ditemukan (`null`), fungsi akan melemparkan `PageNotFoundException::forPageNotFound()`, yang menampilkan halaman error 404.  
+
+    4. **Menyiapkan judul halaman**  
+      - Jika artikel ditemukan, variabel `$title` diisi dengan nilai `judul` dari artikel tersebut.  
+
+    5. **Menampilkan halaman detail artikel**  
+      - Fungsi `view('artikel/detail', compact('artikel', 'title'))` digunakan untuk me-render halaman detail artikel dan mengirimkan data artikel serta judul ke dalam view.
+
+- **Buat file `detail.php` di `Views/artikel/`**:
+  ```php
+  <?= $this->include('template/header'); ?>
+    <main class="container" style="padding: 20px;">
+        <article class="entry">
+            <h2><?= esc($artikel['judul']); ?></h2>
+            <?php if (!empty($artikel['gambar'])) : ?>
+                <img src="<?= base_url('gambar/' . esc($artikel['gambar'], 'url')); ?>"
+                    alt="<?= esc($artikel['judul']); ?>"
+                    style="max-width: 100%; height: auto; margin: 20px 0;">
+            <?php endif; ?>
+            <div class="content">
+                <p><?= esc($artikel['isi']); ?></p>
+            </div>
+        </article>
+    </main>
+  <?= $this->include('template/footer'); ?>
+  ```
+    1. **Menyertakan Header**  
+      - `<?= $this->include('template/header'); ?>` digunakan untuk memasukkan file `header.php`, yang biasanya berisi elemen navigasi dan metadata halaman.  
+
+    2. **Membuat Container Utama**  
+      - `<main class="container" style="padding: 20px;">` membuat elemen `<main>` sebagai wadah utama dengan padding 20px agar tampilan lebih rapi.  
+
+    3. **Menampilkan Judul Artikel**  
+      - `<h2><?= esc($artikel['judul']); ?></h2>` menampilkan judul artikel dengan metode `esc()` untuk mencegah serangan XSS (Cross-Site Scripting).  
+
+    4. **Menampilkan Gambar Jika Ada**  
+      - `if (!empty($artikel['gambar']))` → Mengecek apakah artikel memiliki gambar.  
+      - Jika ada, gambar akan ditampilkan dengan `img src="<?= base_url('gambar/' . esc($artikel['gambar'], 'url')); ?>"`, yang mengambil gambar dari folder `/gambar/` berdasarkan nama file yang tersimpan di database.  
+      - Gambar diberikan style `max-width: 100%; height: auto; margin: 20px 0;` agar responsif dan memiliki jarak yang cukup dari elemen lainnya.  
+
+    5. **Menampilkan Isi Artikel**  
+      - `<div class="content">` digunakan sebagai pembungkus isi artikel.  
+      - `<p><?= esc($artikel['isi']); ?></p>` menampilkan isi artikel dengan `esc()` untuk mencegah input berbahaya.  
+
+    6. **Menyertakan Footer**  
+      - `<?= $this->include('template/footer'); ?>` digunakan untuk menyertakan `footer.php`, yang biasanya berisi informasi tambahan atau script JavaScript.
+
+![alt](screenshots/detail.png)
+
+
+---
+
+## ✅ **Kesimpulan**
+- 🚀 CRUD memungkinkan **manajemen data** dalam aplikasi web.
+- ✅ CodeIgniter 4 menyediakan **Model, Controller, dan View** untuk memudahkan pengembangan CRUD.
+- ✅ Dengan konsep MVC, struktur kode menjadi lebih **modular dan terorganisir**.
+
+---
+
+## 🚧 **Kendala & Solusi**
+| ⚠️ **Kendala** | ✅ **Solusi** |
+|----------------|-------------|
+| Data tidak muncul di halaman | Pastikan database sudah terhubung di `.env` |
+| Query error saat insert | Pastikan format SQL benar |
+| Controller tidak terdeteksi | Pastikan file berada di `app/Controllers/` |
+
+---
+
+## 🔗 **Referensi**
+1. [📘 Dokumentasi CodeIgniter 4](https://codeigniter.com/user_guide/)
+2. 📒 Modul Praktikum Pemrograman Web 2  
+3. [PHP MySQL Manual](https://www.php.net/manual/en/book.mysqli.php)
+
+---
+
