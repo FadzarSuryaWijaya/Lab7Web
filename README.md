@@ -710,6 +710,8 @@ Sesuaikan juga halaman lain agar menggunakan layout yang baru.
 | 🔄 **Autosave & Undo** – Mencegah kehilangan data saat menulis. | 📜 **Agak Berat** – Bisa terasa lambat di perangkat lama atau koneksi lambat. |  
 | 🌍 **Dukungan Banyak Bahasa** – Bisa dipakai dalam berbagai bahasa, termasuk bahasa Indonesia. | |  
 
+---
+
 ### Full version
 
 * Unduh disini untuk versi full version dari versi Awal
@@ -717,7 +719,48 @@ Sesuaikan juga halaman lain agar menggunakan layout yang baru.
 
 * Unduh disini untuk versi full version dari versi mod
     - ⚙️ [Unduh Versi Mod](https://github.com/FadzarSuryaWijaya/Lab7Web/blob/main/lab11_php_ci%5Bmod%5D.zip)
----
+
+## 🚀 Panduan Menjalankan dan Mengunduh Project CodeIgniter 4  
+
+### 📁 1. Unduh File
+Pertama yang harus dilakukan adalah mengnuduh folder zip atau anda langsung bisa unduh [disini](#full-version)  
+
+### 📁 2. Ekstrak File ZIP  
+Ekstrak folder yang telah diunduh dari GitHub. Setelah diekstrak, 
+simpan pada direktori `xampp/htdocs`. Struktur folder akan terlihat seperti ini:  
+![alt](screenshots/T1.png)
+
+
+### 🛠️ 2. Import Database ke phpMyAdmin  
+<p align="center">
+  <img src="screenshots/T2.png">
+</p>
+
+1. Buka **XAMPP** dan nyalakan **Apache** serta **MySQL**.  
+  ![alt](screenshots/xampp.png)
+2. Buka browser dan akses `http://localhost/phpmyadmin/`.  
+3. Buat database baru dengan nama **lab_ci4** (atau sesuaikan dengan nama di `.env`).  
+4. Pilih database yang dibuat tadi, lalu klik tab **Import**.  
+5. Klik **Choose File**, cari file `lab_ci4.sql`, lalu klik **Go**.  
+
+### 🔥 3. Jalankan CodeIgniter 4  
+1. Buka **Command Prompt (CMD) / Terminal**.  
+2. Arahkan ke folder project:  
+   ```sh
+   cd path/to/project-folder
+   ```
+3. Jalankan perintah berikut untuk memulai server:  
+   ```sh
+   php spark serve
+   ```
+   ![alt](screenshots/spark-serve.png)
+4. Buka browser dan akses:  
+   ```
+   http://localhost:8080/
+   ```
+
+
+
 
 ✨ Code sudah selesai dan bisa diterapkan pada projek 🚀🎉
 
