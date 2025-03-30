@@ -1,7 +1,7 @@
 # 📖 Daftar Isi  
 1️⃣ [**Praktikum 1**](#-laporan-praktikum-1---pemrograman-web-2) - instalasi & setup code igniter 
 2️⃣ [**Praktikum 2**](#-laporan-praktikum-2---pemrograman-web-2) - Membuat CRUD  
-3️⃣ [**Praktikum 3**](#praktikum-3-view-layout-dan-view-cell-️) - Membuat tampilan artikel terkini menggunakan View Cell
+3️⃣ [**Praktikum 3**](#praktikum-3-view-layout-dan-view-cell-️) - Membuat View Layout dan artikel terkini menggunakan View Cell
 
 
 # 📄 **Laporan Praktikum 1 - Pemrograman Web 2**  
@@ -632,8 +632,10 @@ Sesuaikan juga halaman lain agar menggunakan layout yang baru.
 **📞 Panggil view cell ke dalam `layout/main.php`**
 ![alt](screenshots/view_cell.png)
 
----
 
+
+
+# 📌 Jawaban dari Pertanyaan Praktikum 3
 #### ✅ **Manfaat Utama dari Penggunaan View Layout**  
 **View Layout** dalam CodeIgniter 4 berfungsi sebagai template utama yang dapat digunakan kembali di berbagai halaman. Manfaat utamanya:  
 1. **Konsistensi UI/UX** 🖥️ – Semua halaman memiliki tampilan yang seragam.  
@@ -653,6 +655,7 @@ Sesuaikan juga halaman lain agar menggunakan layout yang baru.
 
 ---
 
+## Penyesuaian Terakhir
 
 
 ---
