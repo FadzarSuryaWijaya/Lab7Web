@@ -655,14 +655,67 @@ Sesuaikan juga halaman lain agar menggunakan layout yang baru.
 
 ---
 
-# Penyesuaian Terakhir
+# 🌲 Penyesuaian Terakhir
+
 ✨ Beberapa Penyesuaian diperlukan untuk memperindah tampilan website yang sudah dibuat.
+---
+
 * Melakukan Penyesuaian pada ui 🖥️
   > Mengubah css dan Layout pada Home (tampilan awal)
   
-* Menambah fitur untuk pengoptimalan kinerja ⚙️
+  * Copy css [disini](https://github.com/FadzarSuryaWijaya/Lab7Web/blob/main/lab11_php_ci%5Bmod%5D/public/assets/main.css) lalu simpan pada public/assets/main.css
 
+  * Buat Layout baru di Layout/main.php 🖼️
+    Copy Layout [disini](https://github.com/FadzarSuryaWijaya/Lab7Web/blob/main/lab11_php_ci%5Bmod%5D/app/Views/layout/main.php)
 
+  *  Ubah Home.php menjadi seperti code  [disini](https://github.com/FadzarSuryaWijaya/Lab7Web/blob/main/lab11_php_ci%5Bmod%5D/app/Views/home.php) / extend layout di home.php
+  ```php
+    <?= $this->extend('layout/main') ?>
+    <?= $this->section('content') ?>
+
+        <!-- Code disini -->
+        
+    <?= $this->endSection() ?>
+  ```
+  * Output Setelah Memodifikasi Home.php 🏠
+  ![alt](screenshots//home_baru.png)
+
+---
+
+* Menambah fitur pada form_add untuk pengoptimalan kinerja ⚙️
+  > Untuk mempermudah editor menampilkan artikel sesuai keinginan
+
+  * Menambahkan CKEditor <br>
+    Ubah code pada [form_add.php](https://github.com/FadzarSuryaWijaya/Lab7Web/blob/main/lab11_php_ci%5Bmod%5D/app/Views/artikel/form_add.php) dan [form_edit.php](https://github.com/FadzarSuryaWijaya/Lab7Web/blob/main/lab11_php_ci%5Bmod%5D/app/Views/artikel/form_edit.php)
+  * ⚙️ Tampilan Setelah modifikasi
+  ![alt](screenshots/add.png)
+
+  * 📃 Output ketika menulis artikel dengan beberapa penyesuaian font di`public/assets/main.css`
+  ![alt](screenshots/artikel2.png)
+
+---
+
+### 📌 Apa itu CKEditor?
+  CKEditor adalah rich text editor berbasis web yang memungkinkan pengguna untuk menulis dan memformat teks seperti di aplikasi pengolah kata (misalnya Microsoft Word). CKEditor sering digunakan dalam website, CMS (Content Management System), dan aplikasi berbasis web untuk mengedit konten secara langsung di browser.
+  
+---
+
+### Kelebihan dan kekurangan CKEditor
+
+| ✅ **Kelebihan untuk User** | ❌ **Kekurangan untuk User** |  
+|---------------------------|---------------------------|  
+| 🖊️ **Mudah Digunakan** – Tampilan intuitif seperti Microsoft Word. | 🔧 **Perlu Adaptasi** – Butuh waktu untuk memahami semua fiturnya. |  
+| 🎨 **Tampilan Modern** – UI responsif dan enak dipakai di berbagai perangkat. | 📁 **Manajemen File Tidak Langsung Ada** – Harus dikonfigurasi dulu untuk upload file. |  
+| 🏆 **Banyak Fitur Lengkap** – Ada spell checker, format teks, tabel, media, dll. | 🛠️ **Kadang Overkill** – Terlalu banyak fitur yang tidak selalu diperlukan. |  
+| 🔄 **Autosave & Undo** – Mencegah kehilangan data saat menulis. | 📜 **Agak Berat** – Bisa terasa lambat di perangkat lama atau koneksi lambat. |  
+| 🌍 **Dukungan Banyak Bahasa** – Bisa dipakai dalam berbagai bahasa, termasuk bahasa Indonesia. | |  
+
+### Full version
+    Unduh disini untuk versi full version dari versi Awal
+    ⚙️ [Unduh Versi Awal]()
+
+    Unduh disini untuk versi full version dari versi mod
+    ⚙️ [Unduh Versi Mod]()
 ---
 
 ✨ Code sudah selesai dan bisa diterapkan pada projek 🚀🎉
