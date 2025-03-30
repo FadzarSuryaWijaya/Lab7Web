@@ -1,5 +1,10 @@
+# 📖 Daftar Isi  
+1️⃣ [**Praktikum 1**](#-laporan-praktikum-1---pemrograman-web-2) - instalasi & setup code igniter 
+2️⃣ [**Praktikum 2**](#-laporan-praktikum-2---pemrograman-web-2) - Membuat CRUD  
+3️⃣ [**Praktikum 3**](#praktikum-3-view-layout-dan-view-cell-️) - Membuat tampilan artikel terkini menggunakan View Cell
+
+
 # 📄 **Laporan Praktikum 1 - Pemrograman Web 2**  
-### **Framework CodeIgniter 4** 🔥
 
 ---
 
@@ -198,9 +203,9 @@
   <body>
       <header><h1>My Web</h1></header>
       <nav>
-          <a href="/Home">FAQs</a>
-          <a href="/Artikel">FAQs</a>
-          <a href="/About">FAQs</a>
+          <a href="/Home">Home</a>
+          <a href="/Artikel">Artikel</a>
+          <a href="/About">About</a>
           <a href="/Kontak">About</a> |
           <a href="/Dashboard">Contact</a> |
       </nav>
@@ -554,6 +559,106 @@
 | Controller tidak terdeteksi | Pastikan file berada di `app/Controllers/` |
 
 ---
+
+
+# Praktikum 3: View Layout dan View Cell 🎨🛠️
+
+### 1️⃣ Membuat Layout Utama 🏗️
+Buat folder **layout** di dalam `app/Views/`, lalu buat file `main.php` dengan kode berikut:
+
+```php
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title><?= $title ?? 'My Website' ?></title>
+        <link rel="stylesheet" href="<?= base_url('/style.css'); ?>">
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1>Layout Sederhana</h1>
+            </header>
+            <nav>
+                <a href="<?= base_url('/'); ?>" class="active">Home</a>
+                <a href="<?= base_url('/artikel'); ?>">Artikel</a>
+                <a href="<?= base_url('/about'); ?>">About</a>
+                <a href="<?= base_url('/contact'); ?>">Kontak</a>
+            </nav>
+            <section id="wrapper">
+                <section id="main">
+                    <?= $this->renderSection('content') ?>
+                </section>
+                <aside id="sidebar">
+                    <?= view_cell('App\\Cells\\ArtikelTerkini::render') ?>
+                </aside>
+            </section>
+            <footer>
+                <p>&copy; 2021 - Universitas Pelita Bangsa</p>
+            </footer>
+        </div>
+    </body>
+    </html>
+```
+
+---
+
+### 2️⃣ Modifikasi File View 📄
+Ubah file `app/Views/home.php` agar sesuai dengan layout baru:
+![alt](screenshots/home-index.png)
+
+Sesuaikan juga halaman lain agar menggunakan layout yang baru.  
+
+---
+
+### 3️⃣ Menampilkan Data Dinamis dengan View Cell 🏷️
+
+**View Cell** digunakan untuk menampilkan komponen UI yang bisa digunakan ulang. Contoh yang sering digunakan adalah sidebar, widget, atau menu navigasi.
+
+#### 🏗️ Membuat Class View Cell
+1. Buat folder **Cells** di dalam `app/`.
+2. Buat file `ArtikelTerkini.php` di dalam `app/Cells/` dengan kode berikut:
+
+![alt](screenshots/cells-artikelterkini.png)
+
+#### 📄 Membuat View untuk View Cell
+1. Buat folder **components** di dalam `app/Views/`.
+2. Buat file `artikel_terkini.php` di dalam `app/Views/components/` dengan kode berikut:
+3. panggil di dalam layout/main.php
+
+**📄 Source code `app/Views/components/`**
+![alt](screenshots/cells-views.png)
+
+**📞 Panggil view cell ke dalam `layout/main.php`**
+![alt](screenshots/view_cell.png)
+
+---
+
+#### ✅ **Manfaat Utama dari Penggunaan View Layout**  
+**View Layout** dalam CodeIgniter 4 berfungsi sebagai template utama yang dapat digunakan kembali di berbagai halaman. Manfaat utamanya:  
+1. **Konsistensi UI/UX** 🖥️ – Semua halaman memiliki tampilan yang seragam.  
+2. **Efisiensi Kode** ⏳ – Menghindari duplikasi kode dengan menggunakan satu layout untuk banyak halaman.  
+3. **Mudah Dikelola** 📂 – Jika ada perubahan desain, cukup edit satu file layout.  
+4. **Pemisahan Logika dan Tampilan** 🎭 – Mempermudah maintenance dan debugging. 
+
+---
+
+#### ✅ **Perbedaan antara View Cell dan View Biasa**  
+| **Aspek**        | **View Biasa** | **View Cell** |
+|------------------|---------------|--------------|
+| **Cara Pemanggilan** | Dipanggil langsung dari controller dengan `return view()` | Dipanggil dengan helper `view_cell()` di dalam [views/layout/main.php](#-membuat-view-untuk-view-cell) |
+| **Penggunaan Data** | Data dikirim melalui parameter kedua `return view('file', $data)` | Menggunakan method dalam class terpisah |
+| **Fleksibilitas** | Kurang fleksibel karena perlu memuat seluruh View | Lebih modular, bisa digunakan di berbagai tempat |
+| **Kinerja** | Bisa lebih berat jika banyak data yang diproses | Lebih ringan untuk komponen kecil yang sering digunakan |
+
+---
+
+
+
+---
+
+✨ Code sudah selesai dan bisa diterapkan pada projek 🚀🎉
+
 
 ## 🔗 **Referensi**
 1. [📘 Dokumentasi CodeIgniter 4](https://codeigniter.com/user_guide/)
