@@ -744,11 +744,13 @@ simpan pada direktori `xampp/htdocs`. Struktur folder akan terlihat seperti ini:
 5. Klik **Choose File**, cari file `lab_ci4.sql`, lalu klik **Go**.  
 
 ### 🔥 3. Jalankan CodeIgniter 4  
-1. Buka **Command Prompt (CMD) / Terminal**.  
+1. Buka **Command Prompt (CMD) / Terminal** pada file explorer.  
 2. Arahkan ke folder project:  
-   ```sh
-   cd path/to/project-folder
-   ```
+  ![alt](screenshots/htdocs-path.png)
+3. Hapus path dan ubah jadi
+  ![alt](screenshots/htdocs-cmd.png)
+4. ketik code . pada cmd lalu `enter`, maka akan langsung di arahkan ke vscode
+
 3. Jalankan perintah berikut untuk memulai server:  
    ```sh
    php spark serve
@@ -759,11 +761,10 @@ simpan pada direktori `xampp/htdocs`. Struktur folder akan terlihat seperti ini:
    http://localhost:8080/
    ```
 
-
-
+---
 
 ✨ Code sudah selesai dan bisa diterapkan pada projek 🚀🎉
-
+---
 
 ## 🔗 **Referensi**
 1. [📘 Dokumentasi CodeIgniter 4](https://codeigniter.com/user_guide/)
