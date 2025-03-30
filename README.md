@@ -655,7 +655,12 @@ Sesuaikan juga halaman lain agar menggunakan layout yang baru.
 
 ---
 
-## Penyesuaian Terakhir
+# Penyesuaian Terakhir
+✨ Beberapa Penyesuaian diperlukan untuk memperindah tampilan website yang sudah dibuat.
+* Melakukan Penyesuaian pada ui 🖥️
+  > Mengubah css dan Layout pada Home (tampilan awal)
+  
+* Menambah fitur untuk pengoptimalan kinerja ⚙️
 
 
 ---

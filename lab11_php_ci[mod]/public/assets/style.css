@@ -1,0 +1,269 @@
+/* import google font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&display=swap');
+
+
+@media (max-width: 768px) {
+    #wrapper {
+        flex-direction: column;
+    }
+
+    #main, #sidebar {
+        flex: 1 1 100%;
+    }
+}
+
+/* Reset CSS */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    line-height: 1;
+    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+    color: #5a5a5a;
+}
+
+#container {
+    min-height: 100vh;
+    /* width: 980px; */
+    margin: 0 auto;
+    box-shadow: 0 0 1em #cccccc;
+    flex-direction: column;
+}
+
+/* header */
+header {
+    padding: 20px;
+}
+
+header h1 {
+    margin: 20px 10px;
+    color: #b5b5b5;
+}
+
+/* navigasi */
+nav {
+    display: block;
+    background-color: #1f5faa;
+}
+
+nav a {
+    padding: 15px 30px;
+    display: inline-block;
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a.active,
+nav a:hover {
+    background-color: #2b83ea;
+}
+
+/* main content */
+#wrapper {
+    /* margin: 0; */
+    display: flex;
+    flex-wrap: wrap;
+    /* biar responsive */
+    flex: 1;
+    /* min-height: calc(100vh - 160px); */
+    min-height: 200vh;
+
+    /* header + footer kira-kira 160px */
+}
+
+#main {
+    float: left;
+    width: 640px;
+    padding: 20px;
+    flex: 3;
+    background-color: #f9f9f9; 
+}
+
+/* sidebar area */
+#sidebar {
+    float: left;
+    width: 260px;
+    padding: 20px;
+}
+
+/* widget */
+.widget-box {
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.widget-box .title {
+    padding: 10px 16px;
+    background-color: #428bca;
+    color: #fff;
+}
+
+.widget-box ul {
+    list-style-type: none;
+}
+
+.widget-box li {
+    border-bottom: 1px solid #eee;
+}
+
+.widget-box li a {
+    padding: 10px 16px;
+    color: #333;
+    display: block;
+    text-decoration: none;
+}
+
+.widget-box li:hover a {
+    background-color: #eee;
+}
+
+.widget-box p {
+    padding: 15px;
+    line-height: 25px;
+}
+
+/* footer */
+footer {
+    clear: both;
+    background-color: #1d1d1d;
+    padding: 20px;
+    color: #eee;
+    text-align: center;
+}
+
+/* Hero Panel */
+#hero {
+    background-color: #e4e4e5;
+    padding: 50px 20px;
+    margin-bottom: 20px;
+}
+
+#hero h1 {
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+
+#hero p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.box {
+    display: block;
+    float: left;
+    width: 33.333333%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/* admin_index */
+.table-data {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.table-data th,
+.table-data td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.table-data th {
+    background-color: #f2f2f2;
+}
+
+.table-data tr:hover {
+    background-color: #f9f9f9;
+}
+.status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 12px;
+    color: #fff;
+}
+
+.status-published {
+    background-color: #28a745;
+}
+
+.status-draft {
+    background-color: #ffc107;
+}
+
+.alert {
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background-color: #28a745;
+}
+
+.alert-danger {
+    background-color: #dc3545;
+}
+/* admin index */
+
+.btn {
+    display: inline-block;
+    padding: 10px 10px;
+    margin: 2px;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* expand */
+.read-more {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #0073e6;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.read-more:hover {
+    background-color: #005bb5;
+}
