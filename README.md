@@ -1,7 +1,7 @@
 # 📖 Daftar Isi  
-1️⃣ [**Praktikum 1**](#-laporan-praktikum-1---pemrograman-web-2) - instalasi & setup code igniter 
-2️⃣ [**Praktikum 2**](#-laporan-praktikum-2---pemrograman-web-2) - Membuat CRUD  
-3️⃣ [**Praktikum 3**](#praktikum-3-view-layout-dan-view-cell-️) - Membuat View Layout dan artikel terkini menggunakan View Cell
+* 1️⃣ [**Praktikum 1**](#-laporan-praktikum-1---pemrograman-web-2) - instalasi & setup code igniter 
+* 2️⃣ [**Praktikum 2**](#-laporan-praktikum-2---pemrograman-web-2) - Membuat CRUD  
+* 3️⃣ [**Praktikum 3**](#praktikum-3-view-layout-dan-view-cell-️) - Membuat View Layout dan artikel terkini menggunakan View Cell
 
 
 # 📄 **Laporan Praktikum 1 - Pemrograman Web 2**  
@@ -711,11 +711,12 @@ Sesuaikan juga halaman lain agar menggunakan layout yang baru.
 | 🌍 **Dukungan Banyak Bahasa** – Bisa dipakai dalam berbagai bahasa, termasuk bahasa Indonesia. | |  
 
 ### Full version
-    Unduh disini untuk versi full version dari versi Awal
-    ⚙️ [Unduh Versi Awal]()
 
-    Unduh disini untuk versi full version dari versi mod
-    ⚙️ [Unduh Versi Mod]()
+* Unduh disini untuk versi full version dari versi Awal
+    - ⚙️ [Unduh Versi Awal](https://github.com/FadzarSuryaWijaya/Lab7Web/blob/main/lab11_php_ci_(pertama).zip)
+
+* Unduh disini untuk versi full version dari versi mod
+    - ⚙️ [Unduh Versi Mod](https://github.com/FadzarSuryaWijaya/Lab7Web/blob/main/lab11_php_ci%5Bmod%5D.zip)
 ---
 
 ✨ Code sudah selesai dan bisa diterapkan pada projek 🚀🎉
