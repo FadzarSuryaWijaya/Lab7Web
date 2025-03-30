@@ -736,12 +736,11 @@ simpan pada direktori `xampp/htdocs`. Struktur folder akan terlihat seperti ini:
   <img src="screenshots/T2.png">
 </p>
 
-1. Buka **XAMPP** dan nyalakan **Apache** serta **MySQL**.  
-  ![alt](screenshots/xampp.png)
+1. Buka **XAMPP** dan nyalakan **Apache** serta **MySQL**. 
 2. Buka browser dan akses `http://localhost/phpmyadmin/`.  
 3. Buat database baru dengan nama **lab_ci4** (atau sesuaikan dengan nama di `.env`).  
 4. Pilih database yang dibuat tadi, lalu klik tab **Import**.  
-5. Klik **Choose File**, cari file `lab_ci4.sql`, lalu klik **Go**.  
+5. Klik **Choose File**, cari file `lab_ci4.sql`, lalu klik **import**.  
 
 ### 🔥 3. Jalankan CodeIgniter 4  
 1. Buka **Command Prompt (CMD) / Terminal** pada file explorer.  
@@ -749,8 +748,8 @@ simpan pada direktori `xampp/htdocs`. Struktur folder akan terlihat seperti ini:
   ![alt](screenshots/htdocs-path.png)
 3. Hapus path dan ubah jadi
   ![alt](screenshots/htdocs-cmd.png)
-4. ketik code . pada cmd lalu `enter`, maka akan langsung di arahkan ke vscode
-
+4. ketik `code .` pada cmd lalu `enter`, maka akan langsung di arahkan ke vscode
+    ![alt](screenshots/htdocs-cmd2.png)
 3. Jalankan perintah berikut untuk memulai server:  
    ```sh
    php spark serve
