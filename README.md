@@ -2,7 +2,7 @@
 * 1️⃣ [**Praktikum 1**](#-laporan-praktikum-1---pemrograman-web-2) - instalasi & setup code igniter 
 * 2️⃣ [**Praktikum 2**](#-laporan-praktikum-2---pemrograman-web-2) - Membuat CRUD  
 * 3️⃣ [**Praktikum 3**](#praktikum-3-view-layout-dan-view-cell-️) - Membuat View Layout dan artikel terkini menggunakan View Cell
-
+* ⬇️ [**Unduh projek**](#full-version) - Unduh projek versi awal dan modifikasi
 
 # 📄 **Laporan Praktikum 1 - Pemrograman Web 2**  
 
